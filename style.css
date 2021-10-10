@@ -357,7 +357,8 @@ h1 .logo {
 }
 
 #about {
-    background-color: #ffb88a;
+    color: white;
+    background-color: #9F353A;
 }
 
 .social-links {
@@ -408,7 +409,7 @@ h1 .logo {
 }
 
 #about h2 {
-    color: #0d2435;
+    color: white;
 }
 
 #about h2::after {
@@ -423,7 +424,7 @@ h1 .logo {
     font-family: "Brush Script MT", cursive;
     font-size: 150%;
     float: right;
-    color: #0d2435;
+    color: white;
     opacity: 0.9;
 }
 
