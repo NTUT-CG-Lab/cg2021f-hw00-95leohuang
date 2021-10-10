@@ -1,214 +1,288 @@
-<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs -->
-
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang="zh-Hant-TW">
 <head>
-<meta charset="utf-8">
-<title>作品集</title>
-
-<style type="text/css">
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
-
-  body {
-    background-color: rgba(159,53,58,1.0);
-
-    border: solid 1px rgba(217,140,144,1.0);
-  }
-
-  button {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 28pt;
-  }
-
-  h3 {
-    background-color: rgba(255, 255, 0, 0.1);
-    color: white; 
-    text-shadow: 0 0 6px #FF0000, 0 0 6px #000000;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 18pt;
-    border: solid 1px black;
-    width: 90%;
-    margin: 5px auto;
-    padding: 10px;
-  }
-
-  div {
-    font-family: 'Noto Serif JP', serif;
-    border: solid 1px blue;
-    width: 98%;
-    margin: 8px auto;
-    padding: 10px;
-  }
-
-  ul {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 12pt;
-    border: solid 1px black;
-    width: 90%;
-    margin: 5px auto;
-    padding: 10px;
-  }
-
-  li {
-    margin: 2px 20px;
-  }
-
-  iframe:hover, div:hover, ul:hover, h1:hover, h3:hover {
-    background-color: rgba(159,53,58,1.0);
-    border: 1px solid white;
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: 0px 0px 5px 5px rgba(255, 255, 128, 0.5);
-  }
-
-  iframe {
-    border: 1px solid rgba(217,140,144,1.0);
-    width: 98%;
-    height: 600px;
-  }
-
-  /* Style the tab */
-  .tab {
-    overflow: hidden;
-    border: 1px solid #D98C90;
-  }
-
-  /* Style the buttons inside the tab */
-  .tab button {
-    background-color: #9F353A;
-    float: left;
-    border: 1px solid #D98C90;
-    outline: none;
-    cursor: pointer;
-    padding: 8px 16px;
-    transition: 0.3s;
-    font-size: 18pt;
-    margin-right: 8px;
-    box-shadow: 0px 0px 3px 3px rgba(128, 255, 255, 0.5);
-    width: 7%;
-    color: white;
-  }
-
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-    background-color: #ddd;
-  }
-
-  /* Create an active/current tablink class */
-  .tab button.active {
-    background-color: #ccc;
-  }
-
-  /* Style the tab content */
-  .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-  }
-  /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs */
-
-
-</style>
+    <meta charset="UTF-8">
+    <title> 高等計算機圖學作品集 </title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/earlyaccess/cwtexkai.css' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="./icon.png" type="image/png">
 </head>
+
 <body>
- 
+    
+    <header>
+        <div id="nav">
+            <div class="dropdown">
+                <button class="dropbtn">課程</button>
+                <div class="dropdown-content">
+                    <a href="https://95leohuang.github.io/ca2021s/" data-offset="-140">電腦動畫(109-2)</a>
+                    <a href="https://95leohuang.github.io/vis2021s/" data-offset="-139">資料可視化(109-2)</a>
+                    <a href="https://ntut-cg-lab.github.io/cg2021f-hw00-95leohuang/" data-offset="-139">高等計算機圖學(110-1)</a>
+                </div>
+            </div>
+            <button class="dropbtn" onclick="scrolltoID('about')" data-offset="-140">HOME</button>
+            <button class="dropbtn" onclick="scrolltoID('portfolio')" data-offset="-139">PORTFOLIO</button>
+        </div>
+    </header>
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'hw00')">00   </button>
-  <button class="tablinks" onclick="openCity(event, 'hw01')">01 子</button>
-  <button class="tablinks" onclick="openCity(event, 'hw02')">02 丑</button>
-  <button class="tablinks" onclick="openCity(event, 'hw03')">03 寅</button>
-  <button class="tablinks" onclick="openCity(event, 'hw04')">04 卯</button>
-  <button class="tablinks" onclick="openCity(event, 'hw05')">05 辰</button>
-  <button class="tablinks" onclick="openCity(event, 'hw06')">06 巳</button>
-  <button class="tablinks" onclick="openCity(event, 'hw07')">07 午</button>
-  <button class="tablinks" onclick="openCity(event, 'hw08')">08 未</button>
-  <button class="tablinks" onclick="openCity(event, 'hw09')">09 申</button>
-  <button class="tablinks" onclick="openCity(event, 'hw10')">10 酉</button>
-  <button class="tablinks" onclick="openCity(event, 'hw11')">11 戌</button>
-  <button class="tablinks" onclick="openCity(event, 'hw12')">12 亥</button>
-</div>
+    <!-- LANDING PAGE -->
+    <section id="home" class="hidden">
+        <!-- OVERLAY -->
+        <div class="overlay">
+            <!-- PRIMARY NAVIGATION -->
+            <nav role="navigation">
+                <ul class="vertical-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </nav>
+            <!-- END OF PRIMARY NAVIGATION -->
 
-<div id="hw00" class="tabcontent">
-    <iframe src="./hw00.html" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+            <!-- CONTAINER -->
+            <div class="container">
+                <h1><span class="logo">lab</span><small>web / automation development</small></h1>
+                <ul class="social-links vertical-list">
+                    <li><a href="https://twitter.com/" class="noir twitter" target="_blank">Twitter</a></li>
+                    <li><a href="" class="noir linkedin" target="_blank">...</a></li>
+                    <li><a href="" class="noir freecodecamp" target="_blank">....</a></li>
+                </ul>
+            </div>
+            <!-- END OF CONTAINER -->
+        </div>
+        <!-- END OF OVERLAY -->
+    </section>
+    <!-- END OF LANDING PAGE -->
 
-<div id="hw01" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw01-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+    <!-- ABOUT -->
+    <section id="about">
+        <!-- CONTAINER -->
+        <div class="container" style="padding: 5% 0;">
+            <h2>高等計算機圖學 (110-1)</h2>
+            <div class="row info">
+                <div class="col-sm-8">
+                    <table>
+                        <tr>
+                            <td>姓名：</td>
+                            <td>黃子洋</td>
+                        </tr>
+                        <tr>
+                            <td>學號：</td>
+                            <td>109598402</td>
+                        </tr>
+                        <tr>
+                            <td>班級：</td>
+                            <td>資工碩二</td>
+                        </tr>
+                    </table>
+                    <br> [檔案] <a href="https://github.com/NTUT-CG-Lab/cg2021f-hw00-95leohuang"
+                        style="color: rgb(77, 100, 228);">https://github.com/NTUT-CG-Lab/cg2021f-hw00-95leohuang</a>
+                    <hr> [網頁] <a href="https://ntut-cg-lab.github.io/cg2021f-hw00-95leohuang/"
+                        style="color: rgb(77, 100, 228);">https://ntut-cg-lab.github.io/cg2021f-hw00-95leohuang/</a>
+                    <p></p>
+                    <span class="signature">.leohuang</span>
+                </div>
 
-<div id="hw02" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw02-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                <div class="col-md-4">
+                    <img src="me.svg"
+                        alt="Leo Huang" class="img-responsive img-circle">
+                </div>
+            </div>
 
-<div id="hw03" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw03-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+            <div id="skill-set" class="hidden">
+                <h3>Skills</h3>
+                <ul class="vertical-list">
+                    <li>
+                        <ul class="vertical-list skills" id="web-development-skills">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="vertical-list skills" id="automation-skills">
+                            <li>AutoHotKey</li>
+                        </ul>
+                    </li>
 
-<div id="hw04" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw04-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                    <li>
+                        <ul class="vertical-list skills" id="misc-skills">
+                            <li>Regular Expressions</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END OF CONTAINER -->
+    </section>
+    <!-- END OF ABOUT -->
 
-<div id="hw05" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw05-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
 
-<div id="hw06" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw06-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+        <!-- CONTAINER -->
+        <div class="container">
+            <h2>portfolio 作品集</h2>
+            <div id="portfolioContainer" class="container">
+            </div>
+            <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
+                height="100%" width="100%" version="1.1" xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                style="background-color: rgba(128, 255, 255, 0); position: fixed; top: 0px; left: 0px; border: none; z-index: -2;"
+                class="" id="fish">
+                <defs>
+                    <linearGradient id="c">
+                        <stop style="stop-color: #fff;" offset="0"></stop>
+                        <stop style="stop-color: #fff; stop-opacity: 0.5;" offset="1"></stop>
+                    </linearGradient>
+                    <linearGradient id="d">
+                        <stop style="stop-color: #fff;" offset="0"></stop>
+                        <stop style="stop-color: #999; stop-opacity: 0.5;" offset="1"></stop>
+                    </linearGradient>
+                    <filter id="f" style="color-interpolation-filters: sRGB;" height="1.3425" width="1.0727" y="-.17124"
+                        x="-.036372">
+                        <feGaussianBlur stdDeviation="14.440955"></feGaussianBlur>
+                    </filter>
+                    <linearGradient id="a" y2="351.82" xlink:href="#d" gradientUnits="userSpaceOnUse" x2="318.77"
+                        gradientTransform="matrix(.37288 0 0 .37288 -80.676 -131.19)" y1="350.78" x1="231.86">
+                    </linearGradient>
+                    <linearGradient id="b" y2="357.85" xlink:href="#c" gradientUnits="userSpaceOnUse" x2="846.56"
+                        gradientTransform="matrix(.37288 0 0 .37288 -80.676 -131.19)" y1="332.56" x1="725.25">
+                    </linearGradient>
+                    <filter id="e" style="color-interpolation-filters: sRGB;" height="1.2108" width="1.0839" y="-.10538"
+                        x="-.041939">
+                        <feGaussianBlur stdDeviation="5.629441"></feGaussianBlur>
+                    </filter>
+                </defs>
+                <g transform="scale (-1, 1)">
+                    <animateMotion repeatCount="indefinite" dur="120s" rotate="auto"
+                        path="M 419.5972,417.26563 C 528.38846,374.24226 847.9568,314.62927 869.6762,111.3908 242.34063,-91.716151 22.747065,173.16756 -72.947478,526.67616 553.22353,456.20976 229.82705,-5.4044452 753.53301,-68.455061 763.53137,121.11988 653.45358,633.39294 32.862669,652.85276 99.111773,540.00886 296.35445,466.00409 419.5972,417.26563 Z">
+                    </animateMotion>
+                    <path style="fill-rule: evenodd; fill: url(#a);"
+                        d="M 0,-26.10285 C 23.043887,-70.9619 39.831512,-62.40596 38.061354,-39.59567 36.593575,-20.68186 0,-26.10285 0,-26.10285 Z m 0,49.879888 c 23.043887,44.85905 39.831512,36.30311 38.061354,13.49282 C 36.593575,18.356048 0,23.777038 0,23.777038 Z">
+                        <animateTransform attributeName="transform" values="1,1; 0.7,1; 1,1" dur="2.5s" type="scale"
+                            repeatCount="indefinite"></animateTransform>
+                    </path>
+                    <path style="fill-rule: evenodd; fill: url(#b);">
+                        <animate attributeName="d"
+                            values="m-64.63-3.5641c0.41199-19.733 43.925-30.107 96.97-26.684 41.329 2.6669 85.657 14.306 130.05 16.898 34.305 2.0031 79.135-32.181 74.104-16.011-10.42 33.494-41.73 17.825-72.17 33.045-40.63 20.314-93.975 22.033-135.04 21.043-54.985-1.326-94.331-8.154-93.91-28.291; m-64.453-1.635c2.5983-19.566 41.039-24.959 94.173-26.477 41.398-1.1825 95.504-0.04932 136.48 17.206 31.671 13.336 89.37 25.663 73.519 31.624-32.83 12.347-43.6-19.11-77.38-14.921-45.08 5.591-89.581 18.285-130.56 21.112-54.874 3.7865-98.886-8.5784-96.235-28.544; m-64.63-3.5641c0.41199-19.733 43.925-30.107 96.97-26.684 41.329 2.6669 85.657 14.306 130.05 16.898 34.305 2.0031 79.135-32.181 74.104-16.011-10.42 33.494-41.73 17.825-72.17 33.045-40.63 20.314-93.975 22.033-135.04 21.043-54.985-1.326-94.331-8.154-93.91-28.291"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                    <path style="fill: #fc4504; fill-rule: evenodd;">
+                        <animate attributeName="d"
+                            values="m150.08 3.1187c4.4377-8.5618-6.0822-22.461 9.946-14.458 9.5966 4.7919-12.581 19.543-9.946 14.458m-45.216 6.1688c6.9071-10.674-7.2164-33.259 14.173-24.458 17.362 7.1443 11.972 11.424 8.7488 22.34-2.6763 9.0623-27.673 9.4594-22.922 2.1176m-149.54-8.9573c12.73-5.5753 6.8366-27.75 30.956-22.682 6.3371 1.3317 6.269 8.1163 31.114-4.0824 3.5474-1.7418 79.819-6.0411 56.785 21.4-11.919 14.192 29.278 11.094-10.929 24.706-20.188 6.835-53.801 0.427-39.523-15.184 7.526-8.2279-8.467-11.516-20.576 3.685-15.612 19.599-75.285 4.18-47.832-7.8432; m149.36 1.7748c6.1157-7.4563 0.009-23.598 13.291-11.576 7.9526 7.1982-16.923 16.004-13.291 11.576m-44.26 2.9962c6.6035-10.864-7.2717-33.541 14.058-24.595 17.313 7.2616 12.092 11.954 8.3459 22.702-3.11 8.9227-26.946 9.3656-22.404 1.8929m-149.93-0.7982c12.989-4.9434 6.8297-26.792 30.983-21.886 6.3459 1.2889 5.7174 8.4141 29.749-5.3171 3.4314-1.9606 77.993-13.542 57.775 16.035-10.46 15.297 30.252 7.8723-8.288 25.668-19.351 8.936-54.498 5.237-41.227-11.238 6.996-8.6837-9.03-10.598-20.655 4.975-14.988 20.08-76.351 2.424-48.34-8.2373; m150.08 3.1187c4.4377-8.5618-6.0822-22.461 9.946-14.458 9.5966 4.7919-12.581 19.543-9.946 14.458m-45.216 6.1688c6.9071-10.674-7.2164-33.259 14.173-24.458 17.362 7.1443 11.972 11.424 8.7488 22.34-2.6763 9.0623-27.673 9.4594-22.922 2.1176m-149.54-8.9573c12.73-5.5753 6.8366-27.75 30.956-22.682 6.3371 1.3317 6.269 8.1163 31.114-4.0824 3.5474-1.7418 79.819-6.0411 56.785 21.4-11.919 14.192 29.278 11.094-10.929 24.706-20.188 6.835-53.801 0.427-39.523-15.184 7.526-8.2279-8.467-11.516-20.576 3.685-15.612 19.599-75.285 4.18-47.832-7.8432"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                    <path style="opacity: 0.5; filter: url(#e); fill: #4d4d4d; fill-rule: evenodd;">
+                        <animate attributeName="d"
+                            values="m -57.196708,-2.581001 c -0.87019,-15.056 31.404,-23.909 74.478,-23.539 42.995,0.3688 94.881998,11.655 143.859998,14.907 34.288,2.2763 71.12742,-26.592635 64.25342,-14.189635 l 23.19427,-1.599421 c -1.77488,-8.558558 -21.27704,-10.820061 -67.76698,5.949057 -19.24,6.939 -63.20944,-6.106966 -158.303686,-15.658864 -10.577423,-1.062467 14.196372,-38.315618 -5.919168,-21.366602 l 0.0022,0 c -9.2450678,7.365602 -20.7505,20.303696 -29.653,21.264466 -83.2062,8.979 -76.9662,58.5991 -0.2172,66.365 8.568,0.867 7.1723523,7.843411 22.232,21.476 C 36.05738,75.553814 8.4331647,30.424186 19.047812,30.340534 161.73976,29.216 163.8751,1.6248725 185.1651,2.753 c 38.554,2.0429231 65.96264,-17.079311 63.6823,-28.075304 l -24.09875,0.953362 c -17.01,30.6809999 -30.80236,12.492941 -62.00236,26.085941 -47.22,20.568 -104.789998,20.064 -146.899998,17.598 -42.971,-2.517 -72.305,-8.971 -73.052,-21.896; m -57.182838,0.103 c 0.329,-15.077 29.974,-20.682 72.987,-23.012 42.934,-2.325 101.589998,-2.787 147.889998,13.529 32.41,11.422 79.60606,20.916788 65.77606,24.026788 l 21.36631,3.297472 C 255.70435,9.8745943 240.251,-2.2681255 188.366,-10.406 c -20.2,-3.169 -47.62888,-25.963848 -165.819025,-24.265534 -10.63,0.031 15.117635,-42.70161 -9.399894,-19.725466 l 8.9e-5,0 c -9.427,9.07 -17.5321,20.9972 -26.428,22.018 -83.14367,9.54 -76.56967,59.1168 0.23033,66.365 8.573,0.809 9.729,7.681 25.386,20.622 C 41.812246,77.941212 8.6050169,34.491797 19.144017,33.223797 165.45156,18.280466 162.5105,2.125 181.0305,12.683 c 31.90486,18.184588 63.30379,16.349914 68.90154,7.070225 L 228.1781,15.034424 C 193.9481,22.728424 195.47416,-1.186 161.76416,3.505 c -51.02,7.099 -102.349998,18.844 -144.529998,19.021 -43.047,0.18 -74.695,-9.48 -74.413,-22.423; m -57.196708,-2.581001 c -0.87019,-15.056 31.404,-23.909 74.478,-23.539 42.995,0.3688 94.881998,11.655 143.859998,14.907 34.288,2.2763 71.12742,-26.592635 64.25342,-14.189635 l 23.19427,-1.599421 c -1.77488,-8.558558 -21.27704,-10.820061 -67.76698,5.949057 -19.24,6.939 -63.20944,-6.106966 -158.303686,-15.658864 -10.577423,-1.062467 14.196372,-38.315618 -5.919168,-21.366602 l 0.0022,0 c -9.2450678,7.365602 -20.7505,20.303696 -29.653,21.264466 -83.2062,8.979 -76.9662,58.5991 -0.2172,66.365 8.568,0.867 7.1723523,7.843411 22.232,21.476 C 36.05738,75.553814 8.4331647,30.424186 19.047812,30.340534 161.73976,29.216 163.8751,1.6248725 185.1651,2.753 c 38.554,2.0429231 65.96264,-17.079311 63.6823,-28.075304 l -24.09875,0.953362 c -17.01,30.6809999 -30.80236,12.492941 -62.00236,26.085941 -47.22,20.568 -104.789998,20.064 -146.899998,17.598 -42.971,-2.517 -72.305,-8.971 -73.052,-21.896"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                </g>
+                <g transform="scale (-1, 1)">
+                    <animateMotion repeatCount="indefinite" dur="120s" rotate="auto"
+                        path="M 561.57202,417.8979 C 639.80317,330.91264 1158.8048,-32.286305 807.5742,23.135534 155.44873,120.78147 -193.96858,459.8915 -0.17490629,655.68895 269.51401,211.50919 60.40759,66.995422 610.03294,-56.156613 639.35239,66.729819 1057.4247,612.6438 348.20287,664.65959 357.24136,534.11843 472.94889,516.43802 561.57202,417.8979 Z">
+                    </animateMotion>
+                    <path style="fill-rule: evenodd; fill: url(#a);"
+                        d="M 0.24999999,-24.85285 C 23.293887,-69.7119 39.831512,-62.40596 38.061354,-39.59567 36.593575,-20.68186 0.24999999,-24.85285 0.24999999,-24.85285 Z m 0,48.748593 C 23.293887,68.754793 39.517835,62.428135 38.061354,39.59567 37.012271,23.149774 9.3857481,25.59271 0.24999999,23.895743 Z">
+                        <animateTransform attributeName="transform" values="1,1; 0.7,1; 1,1" dur="2.5s" type="scale"
+                            repeatCount="indefinite"></animateTransform>
+                    </path>
+                    <path style="fill-rule: evenodd; fill: url(#b);">
+                        <animate attributeName="d"
+                            values="m -63.707068,-0.80588069 c 2.342415,-12.52018731 17.723913,-18.66314231 44.161795,-22.79066131 14.529774,-2.268407 30.456631,-4.118513 49.289343,-4.98387 20.136749,-0.925279 43.851696,-0.745909 66.02159,2.021635 23.37917,2.918503 50.38316,9.182888 71.16503,18.6178961 7.56919,3.4364259 17.47339,6.6303312 26.46699,9.559356 C 221.58375,10.798086 251.60459,22.804415 239.37482,26.71092 215.01686,34.491485 213.6378,25.441372 186.43253,12.568195 179.56775,9.3198727 171.79125,7.7677504 162.60704,8.6498217 139.31158,10.88717 117.8955,14.667525 94.531832,18.148164 72.542306,21.424089 52.601298,24.681609 32.760441,26.397263 13.832529,28.033973 -4.8081667,28.320889 -19.425769,26.429053 -47.12899,22.84365 -66.131683,12.153667 -63.707068,-0.80587769 l 0,0; m -64.641074,-3.0503306 c -0.408236,-12.7308814 18.935881,-22.3279334 45.500696,-25.5386354 14.5995343,-1.764542 33.246773,-1.351992 52.036318,0.188431 20.090593,1.647086 40.13711,4.618072 62.313464,7.333375 23.385986,2.863412 43.814176,5.504917 66.626786,6.205194 8.30883,0.255056 16.69224,-1.119731 25.77246,-3.768044 28.45756,-8.299853 50.48974,-27.560102 47.29946,-15.124257 -6.35404,24.7683958 -16.88874,22.494657 -47.02767,28.1390851 -7.46474,1.3979983 -15.50698,3.3766891 -23.64241,7.7289797 C 143.60275,13.153249 117.43632,20.106887 94.080913,23.642564 72.099166,26.970288 48.782988,27.339015 28.885207,26.513554 9.9029902,25.726075 -6.2076389,23.807085 -20.751068,21.410832 -48.313716,16.869464 -64.218514,10.127302 -64.641074,-3.0503306 l 0,0; m -63.707068,-0.80588069 c 2.342415,-12.52018731 17.723913,-18.66314231 44.161795,-22.79066131 14.529774,-2.268407 30.456631,-4.118513 49.289343,-4.98387 20.136749,-0.925279 43.851696,-0.745909 66.02159,2.021635 23.37917,2.918503 50.38316,9.182888 71.16503,18.6178961 7.56919,3.4364259 17.47339,6.6303312 26.46699,9.559356 C 221.58375,10.798086 251.60459,22.804415 239.37482,26.71092 215.01686,34.491485 213.6378,25.441372 186.43253,12.568195 179.56775,9.3198727 171.79125,7.7677504 162.60704,8.6498217 139.31158,10.88717 117.8955,14.667525 94.531832,18.148164 72.542306,21.424089 52.601298,24.681609 32.760441,26.397263 13.832529,28.033973 -4.8081667,28.320889 -19.425769,26.429053 -47.12899,22.84365 -66.131683,12.153667 -63.707068,-0.80587769 l 0,0"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                    <path style="fill: #fc4504; fill-rule: evenodd;">
+                        <animate attributeName="d"
+                            values="M -1.9037077,22.625185 C -17.623574,22.198015 -44.814071,22.899999 -30.965775,3.995966 c 8.483953,-11.5812816 -4.5875,-16.907622 18.566677,-22.347946 13.09647137,-3.077157 24.828191,-17.746886 27.202169,4.993243 1.325266,12.69460656 12.054752,14.10399732 5.479038,22.2963955 -8.121845,10.1186555 -2.768717,14.2151655 -22.1858167,13.6875265 0,0 0,0 0,0 M 34.682662,9.6429645 C 47.354038,-3.3526872 4.1151884,-24.205967 48.830555,-17.736397 c 8.298545,1.200661 1.5563,-23.775733 40.772458,6.962436 17.523807,13.7354012 16.805817,-18.316612 32.180397,2.1854527 11.11671,14.824185 9.99616,-16.2500357 30.34301,3.3970383 4.16766,4.0243151 37.14875,5.15043867 19.00528,11.1301893 -12.38025,4.0802997 -17.14033,-9.2239841 -39.29057,-2.1791114 -9.30137,2.9582973 -14.92295,4.9500767 -22.1211,2.1797639 C 81.055637,-5.0925235 107.1206,12.320869 90.464013,16.335088 70.764218,21.082718 15.493281,29.323425 34.682662,9.6429645 c 0,0 0,0 0,0; M -4.3008044,18.788018 C -19.915251,16.921005 -45.22239,17.720285 -31.459839,-1.2462639 -23.028417,-12.865845 -34.984524,-19.020189 -11.519435,-22.906406 1.7528934,-25.104529 16.25392,-38.016225 15.971473,-15.154259 15.813798,-2.3916378 26.307068,0.25402656 18.824607,7.6275041 9.5828129,16.734688 14.986081,21.094143 -4.3008044,18.788018 c 0,0 0,0 0,0 M 32.925776,10.140551 C 47.149209,-1.1352938 6.5462682,-26.878114 50.231496,-15.34901 c 8.107365,2.13964 1.000659,-22.007305 39.147445,10.0483456 17.045959,14.3241199 12.734209,-17.2846696 30.932929,0.757472 13.15873,13.0455189 4.73475,-16.3440536 29.58773,-2.8410345 5.09064,2.7658263 35.1109,-9.5213071 21.16431,3.533794 -9.51649,8.9081865 -18.47118,-1.4497093 -38.71736,9.9676193 -8.50182,4.7943886 -15.43694,7.3394096 -22.75143,4.8927096 -29.127648,-9.7432093 -3.49513,7.367349 -20.278738,10.812086 -19.850027,4.074101 -77.930404,5.394574 -56.390606,-11.681431 0,0 0,0 0,0; M -1.9037077,22.625185 C -17.623574,22.198015 -44.814071,22.899999 -30.965775,3.995966 c 8.483953,-11.5812816 -4.5875,-16.907622 18.566677,-22.347946 13.09647137,-3.077157 24.828191,-17.746886 27.202169,4.993243 1.325266,12.69460656 12.054752,14.10399732 5.479038,22.2963955 -8.121845,10.1186555 -2.768717,14.2151655 -22.1858167,13.6875265 0,0 0,0 0,0 M 34.682662,9.6429645 C 47.354038,-3.3526872 4.1151884,-24.205967 48.830555,-17.736397 c 8.298545,1.200661 1.5563,-23.775733 40.772458,6.962436 17.523807,13.7354012 16.805817,-18.316612 32.180397,2.1854527 11.11671,14.824185 9.99616,-16.2500357 30.34301,3.3970383 4.16766,4.0243151 37.14875,5.15043867 19.00528,11.1301893 -12.38025,4.0802997 -17.14033,-9.2239841 -39.29057,-2.1791114 -9.30137,2.9582973 -14.92295,4.9500767 -22.1211,2.1797639 C 81.055637,-5.0925235 107.1206,12.320869 90.464013,16.335088 70.764218,21.082718 15.493281,29.323425 34.682662,9.6429645 c 0,0 0,0 0,0"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                    <path style="opacity: 0.5; filter: url(#e); fill: #4d4d4d; fill-rule: evenodd;">
+                        <animate attributeName="d"
+                            values="M 226.05103,8.1310231 C 188.26226,-6.8675384 174.99021,-8.9283532 165.9108,-14.24857 153.24245,-21.671782 126.1841,-29.773136 94.058216,-33.593995 74.03785,-35.975093 47.655521,-36.053741 17.805471,-34.818163 7.1845747,-34.378535 31.602088,-74.259367 9.7088985,-54.271641 c -9.66100299,8.820161 -11.0408028,21.029987 -23.4222005,22.66205 -41.189576,5.429437 -56.903835,16.136247 -58.968394,30.2429552 -2.259048,15.4356198 22.312689,34.7867658 61.186097,36.0855448 15.3343394,0.512329 9.7882391,7.370646 25.814628,19.852898 28.621804,22.292269 -5.1361879,-19.41801 5.447824,-20.282615 30.418537,-2.48488 52.783132,-6.211038 72.4489,-8.781969 37.331827,-4.880437 55.330067,-9.347139 69.647127,-11.536215 10.42455,-1.593915 20.94195,-0.0059 30.27381,6.970327 26.81302,20.044672 60.70704,13.581218 35.45521,-0.563914 C 196.58538,25.526447 195.90431,3.6868534 161.96653,6.2978179 137.6751,8.1666495 115.00421,11.892759 91.242574,14.867295 64.76814,18.181423 40.571446,21.679843 18.351789,22.369494 -24.675765,23.704978 -57.380119,14.078746 -56.537822,1.1598989 c 0.98113,-15.0482229 29.30844,-20.6872959 72.243546,-24.1706619 22.578917,-1.831848 49.965433,-2.937915 76.523209,-0.200051 23.850797,2.458796 51.065357,7.714357 72.456357,16.7658597 31.64827,13.3918218 75.46834,24.8458903 63.96699,26.5090053 17.37256,13.24862 34.10007,2.633928 -2.60125,-11.9330279 0,0 0,0 0,0; m 213.24944,-34.499948 c -35.84435,19.18671 -44.35629,15.621724 -54.78451,14.210117 -14.55032,-1.969592 -32.84474,-4.063348 -64.979541,-7.808504 -20.025921,-2.333923 -42.248542,-5.782911 -72.040158,-8.021595 -10.600105,-0.796543 18.28284,-37.572503 -5.783056,-20.261998 -10.6197726,7.63876 -15.14736049,19.355961 -27.609963,20.15982 -41.45972,2.674228 -63.153689,20.55314 -61.614868,34.7268353 1.683784,15.5089177 20.709675,27.7173037 59.410283,31.6021027 15.2661747,1.532433 7.2869564,7.895132 21.7556266,22.153791 C 33.443102,77.725404 4.7564409,32.377583 15.369256,32.747741 45.870571,33.81158 72.122523,33.624317 91.782178,31.007059 129.1024,26.038679 153.23282,14.846812 165.60135,7.3109246 174.60714,1.8238851 186.17512,-2.198724 197.82636,-2.2003008 231.30362,-2.2048378 249.9608,-39.227606 223.36462,-27.809071 208.56979,-0.07767878 193.05298,-15.294174 162.74083,0.19011252 141.04449,11.273201 114.53849,17.338941 90.783933,20.369453 64.317381,23.745948 37.49721,22.63931 15.347764,20.744361 -27.543827,17.07486 -55.838493,10.570656 -57.144202,-2.3096072 -58.665126,-17.312888 -25.060439,-26.161607 17.988722,-24.636194 c 22.638897,0.802192 47.1277,4.250036 73.691852,6.92532 23.856526,2.402595 45.432896,4.982719 68.659866,5.094424 34.36462,0.165268 69.10494,-26.360783 63.42125,-16.224584 21.08745,-5.714099 24.30062,-24.293489 -10.51225,-5.658914 0,0 0,0 0,0; M 226.05103,8.1310231 C 188.26226,-6.8675384 174.99021,-8.9283532 165.9108,-14.24857 153.24245,-21.671782 126.1841,-29.773136 94.058216,-33.593995 74.03785,-35.975093 47.655521,-36.053741 17.805471,-34.818163 7.1845747,-34.378535 31.602088,-74.259367 9.7088985,-54.271641 c -9.66100299,8.820161 -11.0408028,21.029987 -23.4222005,22.66205 -41.189576,5.429437 -56.903835,16.136247 -58.968394,30.2429552 -2.259048,15.4356198 22.312689,34.7867658 61.186097,36.0855448 15.3343394,0.512329 9.7882391,7.370646 25.814628,19.852898 28.621804,22.292269 -5.1361879,-19.41801 5.447824,-20.282615 30.418537,-2.48488 52.783132,-6.211038 72.4489,-8.781969 37.331827,-4.880437 55.330067,-9.347139 69.647127,-11.536215 10.42455,-1.593915 20.94195,-0.0059 30.27381,6.970327 26.81302,20.044672 60.70704,13.581218 35.45521,-0.563914 C 196.58538,25.526447 195.90431,3.6868534 161.96653,6.2978179 137.6751,8.1666495 115.00421,11.892759 91.242574,14.867295 64.76814,18.181423 40.571446,21.679843 18.351789,22.369494 -24.675765,23.704978 -57.380119,14.078746 -56.537822,1.1598989 c 0.98113,-15.0482229 29.30844,-20.6872959 72.243546,-24.1706619 22.578917,-1.831848 49.965433,-2.937915 76.523209,-0.200051 23.850797,2.458796 51.065357,7.714357 72.456357,16.7658597 31.64827,13.3918218 75.46834,24.8458903 63.96699,26.5090053 17.37256,13.24862 34.10007,2.633928 -2.60125,-11.9330279 0,0 0,0 0,0"
+                            dur="4s" repeatCount="indefinite"></animate>
+                    </path>
+                </g>
+            </svg>
+        </div>
+        <!-- END OF CONTAINER -->
 
-<div id="hw07" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw07-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+    </section>
+    <!-- END OF PORTFOLIO -->
 
-<div id="hw08" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw08-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="hidden">
+        <div class="overlay">
+            <div class="container">
+                <h2>get in touch...</h2>
 
-<div id="hw09" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw09-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <form role="form" method="POST">
+                            <div class="form-group">
+                                <label for="nameTXT">Your Name</label>
+                                <input type="text" id="nameTXT" name="nameTXT">
+                            </div>
 
-<div id="hw10" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw10-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                            <div class="form-group">
+                                <label for="emailTXT">Email Address</label>
+                                <input type="email" id="emailTXT" name="emailTXT">
+                            </div>
 
-<div id="hw11" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw11-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                            <div class="form-group">
+                                <label for="subjectTXT">Subject</label>
+                                <input type="text" id="subjectTXT" name="subjectTXT">
+                            </div>
 
-<div id="hw12" class="tabcontent">
-    <iframe src="https://ntut-cg-lab.github.io/cg2021f-hw12-t109598402/" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+                            <div class="form-group">
+                                <label for="messageTXT">Message</label>
+                                <textarea cols="36" rows="8" id="messageTXT" name="messageTXT"></textarea>
+                            </div>
 
+                            <button type="submit" class="noir" id="submitBTN" name="submitBTN"><span
+                                    class="glyphicon glyphicon-send"></span>Send</button>
+                        </form>
+                    </div>
 
-<script>
-window.onload = function() {
-    openCity(event, 'hw00');
-};
+                    <div class="col-lg-3 overflow">
+                        <ul class="social-links vertical-list">
+                            <li><a href="https://twitter.com/labDevelopments" class="noir twitter"
+                                    target="_blank">Twitter</a></li>
+                            <li><a href="https://www.planecode.co.uk" class="noir linkedin" target="_blank">Blog</a>
+                            </li>
+                            <li><a href="https://www.freecodecamp.com/labriffa" class="noir freecodecamp"
+                                    target="_blank">freeCodeCamp</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF CONTACT PAGE -->
 
-function openCity(evt, cityName) {
+    <!-- VISITOR -->
+    <section id="visitor">
+        <!-- https://www.freecounterstat.com" title="free counters" -->
+        <p>瀏覽次數：
+            <img src="https://counter6.stat.ovh/private/freecounterstat.php?c=pflcza5g5tben2y281lc7s7q4qlqz4n1" title="website counters" alt="website counters"></p>
+    </section>
+    <!-- END OF VISITOR -->
 
-  var i, tabcontent, tablinks;
+    <!-- POPUP -->
+    <section id="popupContainer">
+    </section>
+    <!-- END OF POPUP -->
 
-  tabcontent = document.getElementsByClassName("tabcontent");
-
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  tablinks = document.getElementsByClassName("tablinks");
-
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  document.getElementById(cityName).style.display = "block";
-
-  evt.currentTarget.className += " active";
-}
-</script>
-
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
