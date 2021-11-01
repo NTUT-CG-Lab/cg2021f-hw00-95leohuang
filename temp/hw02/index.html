@@ -15,6 +15,18 @@
 		a {
 			color: #08f;
 		}
+
+		#loading {
+			position: fixed;
+			width: 700px;
+			height: 800px;
+			top: 30%;
+			left: 45%;
+			margin-top: -100px;
+			/* Negative half of height. */
+			margin-left: -250px;
+			/* Negative half of width. */
+		}
 	</style>
 </head>
 
@@ -28,6 +40,7 @@
 		<a href="http://seiga.nicovideo.jp/seiga/im5162984" target="_blank" rel="noopener">Pose Data</a>
 	</div>
 
+	<img id="loading" src="./loading.gif" alt="loading" />s
 	<script src="js/libs/ammo.wasm.js"></script>
 	<script src="scoreoutputer.min.js"></script>
 	<script>
@@ -81,12 +94,12 @@
 	</script>
 	<script type="module">
 
-		import * as THREE from './build/three.module.js';
+		import * as THREE from 'https://cdn.skypack.dev/three@0.120.0/build/three.module.js'
+		import { OrbitControls } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/controls/OrbitControls.js'
 		import { GUI } from './jsm/libs/dat.gui.module.js';
-		import { OrbitControls } from './jsm/controls/OrbitControls.js';
-		import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
-		import { MMDLoader } from './jsm/loaders/MMDLoader.js';
-		import { MMDAnimationHelper } from './jsm/animation/MMDAnimationHelper.js';
+		import { OutlineEffect } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/effects/OutlineEffect.js'
+		import { MMDLoader } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/loaders/MMDLoader.js'
+		import { MMDAnimationHelper } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/animation/MMDAnimationHelper.js'
 
 		let camera, scene, renderer, effect;
 		let mesh, helper;
@@ -224,7 +237,7 @@
 					currentEye = 1;
 					break;
 				case 'Digit2':
-				case 'Numpad2':;
+				case 'Numpad2':
 					currentEye = 2;
 					break;
 				case 'Digit3':
@@ -246,7 +259,7 @@
 						points.push(new THREE.Vector3(eyePos[i].x, eyePos[i].y, eyePos[i].z))
 						i++
 						points.push(new THREE.Vector3(eyePos[i].x, eyePos[i].y, eyePos[i].z))
-						
+
 						eyeline[eye] = new THREE.Line(
 							new THREE.BufferGeometry().setFromPoints(points),
 							new THREE.LineBasicMaterial({ color: 0xff0000 })
@@ -330,6 +343,7 @@
 
 					const percentComplete = xhr.loaded / xhr.total * 100;
 					console.log(Math.round(percentComplete, 2) + '% downloaded');
+					document.getElementById("loading").style.display = (!(percentComplete < 100)) ? 'none' : 'block';
 
 				}
 
@@ -533,7 +547,7 @@
 
 				function onChangeModel(a, data = null) {
 					const index = parseInt(m_controls.model);
-					
+
 					if (data == null) {
 						if (index != currentModel) {
 							currentModel = index;
